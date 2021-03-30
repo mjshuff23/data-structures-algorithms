@@ -31,6 +31,7 @@ let array = [3, 5, -4, 8, 11, 1, -1, 6];
 console.log(twoNumberSum(array, 19)); // [8, 11]
 
 // Solution 2 - Use a hash map
+// Time - O(n), Space - O(n)
 function twoNumberSum2(array, targetSum) {
   // Create our hash map object
   const nums = {};
@@ -53,6 +54,7 @@ function twoNumberSum2(array, targetSum) {
 console.log(twoNumberSum2(array, 19)); // [8, 11]
 
 // Solution 3 - Sort the array and check from outside in
+// Time - O(nlog(n)), Space - O(1)
 function twoNumberSum3(array, targetSum) {
   // Sort the array
   array.sort((a, b) => a - b);
