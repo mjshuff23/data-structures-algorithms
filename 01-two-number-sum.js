@@ -28,4 +28,52 @@ function twoNumberSum(array, targetSum) {
 }
 
 let array = [3, 5, -4, 8, 11, 1, -1, 6];
-console.log(twoNumberSum(array, 19));
+console.log(twoNumberSum(array, 19)); // [8, 11]
+
+// Solution 2 - Use a hash map
+function twoNumberSum2(array, targetSum) {
+  // Create our hash map object
+  const nums = {};
+  // Loop through numbers
+  for (const num of array) {
+    // Store the matching number of `num` in a variable for readability
+    const potentialMatch = targetSum - num;
+    // If our potentialMatch is in our hash map, return that and the current num of the array
+    if (potentialMatch in nums) {
+      return [potentialMatch, num];
+    } else {
+      // If not, add the current num to our hash map
+      nums[num] = true;
+    }
+  }
+  // If we get here, return []
+  return [];
+}
+
+console.log(twoNumberSum2(array, 19)); // [8, 11]
+
+// Solution 3 - Sort the array and check from outside in
+function twoNumberSum3(array, targetSum) {
+  // Sort the array
+  array.sort((a, b) => a - b);
+  // declare where we start
+  let left = 0;
+  let right = array.length - 1;
+
+  // While we have two different numbers to compare...
+  while (left < right) {
+    const currentSum = array[left] + array[right];
+    if (currentSum === targetSum) {
+      return [array[left], array[right]];
+      // If currentSum is less than what we're looking for, move the left to the right to try and increase our currentSum
+    } else if (currentSum < targetSum) {
+      left++;
+      // If currentSum is more than what we're looking for, move the right to the left to try and decrease our currentSum
+    } else if (currentSum > targetSum) {
+      right--;
+    }
+  }
+  return [];
+}
+
+console.log(twoNumberSum3(array, 19)); // [8, 11]
