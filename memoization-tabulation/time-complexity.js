@@ -34,8 +34,15 @@ const bar = (n) => {
                  0
 */
 
+// O(2^n) Time, O(n) space
 const dib = (n) => {
   if (n <= 1) return;
   dib(n - 1);
   dib(n - 1);
+};
+
+const lib = (n) => {
+  if (n <= 1) return;
+  lib(n - 2);
+  lib(n - 2);
 };
