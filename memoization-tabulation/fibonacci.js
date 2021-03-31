@@ -19,6 +19,7 @@
 // console.log(fib(7)); // 13
 
 // MEMOIZATION FIBONACCI - Storing results that you see repeated through the recursion.  Here we will use a JS Object, with the keys being the arg to fn, and the value the return value of that key
+// Time - O(n), Space - O(n)
 const fib = (n, memo = {}) => {
   // If the argument is a key in our memo, return the value from this
   if (n in memo) return memo[n];
