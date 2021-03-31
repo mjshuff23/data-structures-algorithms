@@ -41,6 +41,7 @@ const dib = (n) => {
   dib(n - 1);
 };
 
+// O(2^n/2) Time which becomes O(2^n), Space O(n/2) which becomes O(n)
 const lib = (n) => {
   if (n <= 1) return;
   lib(n - 2);
