@@ -16,6 +16,7 @@ function gridTraveler(m, n) {
   return gridTraveler(m - 1, n) + gridTraveler(m, n - 1);
 }
 
+// Time - O(m * n), Space O(n + m)
 function gridTraveler2(m, n, memo = {}) {
   // Are the arguments in memo?
   const key = `${m},${n}`;
