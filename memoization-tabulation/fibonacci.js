@@ -20,17 +20,17 @@
 
 // MEMOIZATION FIBONACCI - Storing results that you see repeated through the recursion.  Here we will use a JS Object, with the keys being the arg to fn, and the value the return value of that key
 // Time - O(n), Space - O(n)
-const fib = (n, memo = {}) => {
+const fib2 = (n, memo = {}) => {
   // If the argument is a key in our memo, return the value from this
   if (n in memo) return memo[n];
   // Create base case
   if (n <= 2) return 1;
   // Store recursive call into memo and also make sure we pass our memo
-  memo[n] = fib(n - 1, memo) + fib(n - 2, memo);
+  memo[n] = fib2(n - 1, memo) + fib2(n - 2, memo);
   return memo[n];
 };
 
-console.log(fib(1));
-console.log(fib(2));
-console.log(fib(5));
-console.log(fib(100));
+console.log(fib2(1));
+console.log(fib2(2));
+console.log(fib2(5));
+console.log(fib2(50));

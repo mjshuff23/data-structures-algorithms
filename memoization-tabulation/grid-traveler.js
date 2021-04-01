@@ -4,6 +4,8 @@
     In how many ways can you travel to the goal on a grid with dimensions m * n?
 
     Write a function `gridTraveler(m, n)` that calculates this
+
+    - When using recursion, visualize a tree
 */
 
 // Time - O(2^n+m), Space - O(n + m)

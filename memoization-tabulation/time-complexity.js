@@ -3,10 +3,6 @@ const foo = (n) => {
   foo(n - 1);
 };
 
-console.time('test');
-foo(2141);
-console.timeEnd('test');
-
 /*  Time Complexity - O(n), Space - O(n)
     foo(5)       5
                  |
@@ -18,6 +14,10 @@ console.timeEnd('test');
                  |
                  1
 */
+
+console.time('test');
+foo(2141);
+console.timeEnd('test');
 
 const bar = (n) => {
   if (n <= 1) return;
