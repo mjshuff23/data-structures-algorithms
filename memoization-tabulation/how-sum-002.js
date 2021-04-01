@@ -17,4 +17,4 @@ function howSum(targetSum, numbers, memo = {}) {
   return memo[targetSum];
 }
 
-console.log(howSum(3002, [29, 17, 50, 12]));
+console.log(howSum(300, [7, 14]));

@@ -1,3 +1,5 @@
+// m - targetSum, n - numbers.length
+// Time - O(n^m * m), Space - O(m)
 function howSum(targetSum, numbers) {
   if (targetSum === 0) return [];
   if (targetSum < 0) return null;
