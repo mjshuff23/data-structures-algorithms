@@ -1,6 +1,6 @@
 function fibonacci(n) {
   if (n <= 2) return 1; // The first two numbers of fibonacci are 1
-  // Every subsequence number is the sum of the previous two
+  // Every subsequent number is the sum of the previous two
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
 

@@ -16,7 +16,7 @@ function canSum(targetSum, numbers) {
   if (targetSum === 0) return true;
   if (targetSum < 0) return false;
 
-  for (let num of numbers) {
+  for (const num of numbers) {
     const remainder = targetSum - num;
     if (canSum(remainder, numbers)) return true;
   }
