@@ -50,13 +50,10 @@ class Stack {
   }
 }
 
-let node1 = new Node('test');
-let node2 = new Node('test2');
-node2.next = node1;
 let stack = new Stack();
-stack.push(node2);
+stack.push('test');
 // console.log(stack);
-let result = stack.pop(); // 'test2'
+let result = stack.pop(); // 'test'
 console.log(result);
 
 module.exports = {
