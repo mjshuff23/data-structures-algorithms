@@ -1,3 +1,14 @@
+/*
+  fib(5) = 5            5 
+                     3/   \2
+                     4     3
+                   2/ \1 1/  \1
+                   3   2 2    1
+                1 / \ 1
+                 2   1
+  Time - O(2^n), Space - O(n)
+*/
+
 function fibonacci(n) {
   if (n <= 2) return 1; // The first two numbers of fibonacci are 1
   // Every subsequent number is the sum of the previous two

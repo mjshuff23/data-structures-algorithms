@@ -1,0 +1,37 @@
+// Write a function `bestSum(targetSum, numbers)` that takes in a targetSum and an array of numbers as arguments.
+
+// The function should return an array containing the shortest combination of numbers that add up to exactly the targetSum
+
+// If there is a tie for the shortest combination, you may return any one of the shortest
+
+// m = targetSum
+// n = numbers.length
+// Time - O(n * m^2)
+// Space - O(m^2)
+
+function bestSum(targetSum, numbers, memo = {}) {
+  if (targetSum in memo) return memo[targetSum];
+  if (targetSum === 0) return [];
+  if (targetSum < 0) return null;
+
+  let shortestCombo = null;
+
+  // Iterates and attempts all branches
+  for (const num of numbers) {
+    const remainder = targetSum - num;
+    const remainderCombo = bestSum(remainder, numbers, memo);
+    if (remainderCombo) {
+      const combination = [...remainderCombo, num];
+      if (!shortestCombo || combination.length < shortestCombo.length) {
+        shortestCombo = combination;
+      }
+    }
+  }
+
+  memo[targetSum] = shortestCombo;
+  return memo[targetSum];
+}
+
+console.log(bestSum(7, [4, 3, 7])); // [7]
+console.log(bestSum(100, [1, 2, 5, 25])); // [25, 25, 25, 25]
+console.log(bestSum(214, [5, 9, 20, 15, 17, 3, 1])); // [17, 17, 20, 20, 20, 20, 20, 20, 20, 20, 20]

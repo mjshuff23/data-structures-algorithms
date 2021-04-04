@@ -1,3 +1,5 @@
+// Time - O(n), Space - O(n)
+
 function fibonacci(n, memo = {}) {
   if (n in memo) return memo[n];
   if (n <= 2) return 1;
