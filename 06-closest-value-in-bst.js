@@ -1,5 +1,4 @@
 const { BST } = require('./data-structures/bst');
-const { TreeNode } = require('./data-structures/tree-node');
 
 /*
     Write a function that takes in a Binary Search Tree and a target integer value and returns the closest value to the target value contained in the BST
