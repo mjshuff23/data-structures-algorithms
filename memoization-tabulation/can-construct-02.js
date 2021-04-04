@@ -21,9 +21,10 @@
 // time complexity - # of nodes in call tree - branching factor to the height power
 // space complexity - node stack in call tree
 
-// Time - O(n^m * m)
+// Time - O(n * m^2)
 // Space - O(m^2)
-function canConstruct(target, wordBank) {
+function canConstruct(target, wordBank, memo = {}) {
+  if (target in memo) return memo[target];
   if (target === '') return true;
 
   for (const word of wordBank) {
@@ -34,11 +35,15 @@ function canConstruct(target, wordBank) {
 
     if (target.startsWith(word)) {
       const remaining = target.slice(word.length); // <- affects complexity m
-      if (canConstruct(remaining, wordBank)) return true;
+      if (canConstruct(remaining, wordBank, memo)) {
+        memo[target] = true;
+        return memo[target];
+      }
     }
   }
 
-  return false;
+  memo[target] = false;
+  return memo[target];
 }
 
 console.log(canConstruct('abcdef', ['ab', 'abc', 'cd', 'def', 'abcd'])); // true
