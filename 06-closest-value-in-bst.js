@@ -1,10 +1,5 @@
-class BST {
-  constructor(value) {
-    this.value = value;
-    this.left = null;
-    this.right = null;
-  }
-}
+const { BST } = require('./data-structures/bst');
+const { TreeNode } = require('./data-structures/tree-node');
 
 /*
     Write a function that takes in a Binary Search Tree and a target integer value and returns the closest value to the target value contained in the BST
@@ -22,7 +17,7 @@ class BST {
 // Average O(log(n)) time, O(log(n)) Space
 // Worst O(n) time, O(n) space
 function findClosestValueInBST(tree, target) {
-  return findClosestValueInBSTHelper(tree, target, tree.value);
+  return findClosestValueInBSTHelper(tree.root, target, tree.root.value);
 }
 
 function findClosestValueInBSTHelper(tree, target, closest) {
@@ -40,3 +35,17 @@ function findClosestValueInBSTHelper(tree, target, closest) {
     return closest;
   }
 }
+
+let list1 = new BST();
+list1.insert(20);
+list1.insert(30);
+list1.insert(25);
+list1.insert(10);
+list1.insert(29);
+list1.insert(14);
+list1.insert(28);
+list1.insert(9);
+list1.insert(5);
+list1.insert(30);
+
+console.log(findClosestValueInBST(list1, 11));

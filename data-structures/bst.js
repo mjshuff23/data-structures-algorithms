@@ -79,22 +79,22 @@ class BST {
   }
 }
 
-let list1 = new BST();
-list1.insert(20);
-list1.insert(30);
-list1.insert(25);
-list1.insert(10);
-list1.insert(29);
-list1.insert(14);
-list1.insert(28);
-list1.insert(9);
-list1.insert(5);
-list1.insert(30);
+// let list1 = new BST();
+// list1.insert(20);
+// list1.insert(30);
+// list1.insert(25);
+// list1.insert(10);
+// list1.insert(29);
+// list1.insert(14);
+// list1.insert(28);
+// list1.insert(9);
+// list1.insert(5);
+// list1.insert(30);
 
-// list1.inOrder();
-// list1.preOrder();
-list1.postOrder();
-console.dir(list1, { showHidden: false, depth: null });
+// // list1.inOrder();
+// // list1.preOrder();
+// list1.postOrder();
+// console.dir(list1, { showHidden: false, depth: null });
 // console.log(list1.searchIter(29));
 
 module.exports = {
