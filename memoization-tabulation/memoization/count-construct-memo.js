@@ -5,7 +5,10 @@
 
     Elements of the wordBank array can be reused as many times as necessary
 */
-
+// n - length of target
+// m - length of array
+// Time - O(n * m^2)
+// Space - O(m^2)
 function countConstruct(target, wordBank, memo = {}) {
   if (target in memo) return memo[target];
   if (target === '') return 1;
