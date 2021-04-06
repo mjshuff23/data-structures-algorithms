@@ -10,6 +10,7 @@ function isValidSubsequence(array, sequence) {
   let arrIdx = 0;
   let seqIdx = 0;
 
+  // We want to go until either our array or sequence has been completely iterated through
   while (arrIdx < array.length && seqIdx < sequence.length) {
     // if item at index arrIdx is equal to item in sequence at seqIdx
     // increase seqIdx
