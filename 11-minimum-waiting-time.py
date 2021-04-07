@@ -1,5 +1,8 @@
 def minWaitingTime(queries):
     queries.sort()
+    yo = enumerate(queries)
+    for i, duration in yo:
+        print(i, duration)
 
     totalWaitingTime = 0
     for i, duration in enumerate(queries):
