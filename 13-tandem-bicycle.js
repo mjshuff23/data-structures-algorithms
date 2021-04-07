@@ -11,36 +11,36 @@ function tandemBicycle(redShirtSpeeds, blueShirtSpeeds, fastest) {
   blueShirtSpeeds.sort((a, b) => b - a);
 
   let totalSpeed = 0;
-
+  let count = 0;
   if (fastest) {
     // compare the fastest of each shirt left
     // Loop through, end loop by removing the pairs
-    while (redShirtSpeeds.length && blueShirtSpeeds.length) {
-      let redShirtFastest = redShirtSpeeds[0];
-      let blueShirtFastest = blueShirtSpeeds[0];
-
+    let redMaxIdx = 0;
+    let blueMaxIdx = 0;
+    while (count < redShirtSpeeds.length) {
       // if the redShirtFasted is greater than blue shirt, pair with slowest blue shirt
-      if (redShirtFastest > blueShirtFastest) {
+      if (redShirtSpeeds[redMaxIdx] > blueShirtSpeeds[blueMaxIdx]) {
         // pair red with slowest blue, push red fastest
-        totalSpeed += redShirtSpeeds.shift();
-        blueShirtSpeeds.pop();
+        totalSpeed += redShirtSpeeds[redMaxIdx++];
+        count++;
       } else {
-        totalSpeed += blueShirtSpeeds.shift();
-        redShirtSpeeds.pop();
+        totalSpeed += blueShirtSpeeds[blueMaxIdx++];
+        count++;
       }
     }
     return totalSpeed;
   } else {
-    while (redShirtSpeeds.length && blueShirtSpeeds.length) {
-      let redShirtSlowest = redShirtSpeeds[redShirtSpeeds.length - 1];
-      let blueShirtSlowest = blueShirtSpeeds[blueShirtSpeeds.length - 1];
-
-      if (redShirtSlowest < blueShirtSlowest) {
-        totalSpeed += blueShirtSpeeds.pop();
-        redShirtSpeeds.pop();
+    let redMinIdx = redShirtSpeeds.length - 1;
+    let blueMinIdx = blueShirtSpeeds.length - 1;
+    while (count < redShirtSpeeds.length) {
+      if (redShirtSpeeds[redMinIdx] < blueShirtSpeeds[blueMinIdx]) {
+        totalSpeed += blueShirtSpeeds[blueMinIdx--];
+        redMinIdx--;
+        count++;
       } else {
-        totalSpeed += redShirtSpeeds.pop();
-        blueShirtSpeeds.pop();
+        totalSpeed += redShirtSpeeds[redMinIdx--];
+        blueMinIdx--;
+        count++;
       }
     }
     return totalSpeed;
@@ -92,6 +92,6 @@ function reverseArrayInPlace(array) {
   }
 }
 
-console.log(tandemBicycle([1, 3, 6], [2, 4, 3], false));
+console.log(tandemBicycle2([5, 5, 3, 9, 2], [3, 6, 7, 2, 1], true));
 console.log(tandemBicycle2([1, 3, 6], [2, 4, 3], false));
 console.log(tandemBicycle2([1, 3, 6], [2, 4, 3], true));
