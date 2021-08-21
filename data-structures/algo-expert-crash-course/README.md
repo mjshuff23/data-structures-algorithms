@@ -55,6 +55,7 @@
   - Cubic: O(n³)
   - Exponential O(2ⁿ)
   - Factorial O(n!)
+    ![Time Complexity Chart](../../images/time-complexity-chart.png)
 - Big O describes the **worst-case** complexity of an algorithm, even though the worst-case complexity might differ from an **average-case** complexity
 - For example, some sorting algorithms have different time complexities depending on the layout of the elements in their input array. In rare cases, their time complexity will be much worse than in more common cases. Similarly, an algorithm that takes in a string and performs special operations on uppercase characters might have a different time complexity when run on an input string of only uppercase characters vs an input string with just a few uppercase characters
 - It is worthwhile to consider average-case and worst-case scenarios
