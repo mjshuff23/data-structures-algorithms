@@ -75,3 +75,23 @@ function cubicExample(n) {
 	}
 }
 // cubicExample(3);
+
+// O(2ⁿ) - Exponential
+function fib(num) {
+	return num === 0 ? 0 : num === 1 ? 1 : fib(num - 1) + fib(num - 2);
+}
+console.log(fib(10));
+
+// O(n!) - Factorial
+function factorial(n) {
+	let num = n;
+	if (n === 0) return 1;
+
+	for (let i = 0; i < n; i++) {
+		num = n * factorial(n - 1);
+	}
+
+	return num;
+}
+
+// console.log(factorial(20));
