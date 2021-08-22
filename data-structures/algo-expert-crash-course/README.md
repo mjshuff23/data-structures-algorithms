@@ -59,3 +59,12 @@
 - Big O describes the **worst-case** complexity of an algorithm, even though the worst-case complexity might differ from an **average-case** complexity
 - For example, some sorting algorithms have different time complexities depending on the layout of the elements in their input array. In rare cases, their time complexity will be much worse than in more common cases. Similarly, an algorithm that takes in a string and performs special operations on uppercase characters might have a different time complexity when run on an input string of only uppercase characters vs an input string with just a few uppercase characters
 - It is worthwhile to consider average-case and worst-case scenarios
+
+## Logarithm
+
+- A mathematical concept that's widely used in Computer Science and that's defined by the following equation:
+  - `logb(x) = y` if and only if `bʸ = x`
+- In the context of coding interviews, the logarithm is used to describe the complexity analysis of algorithms, and it's usage always implies a logarithm of base `2`. In other words, the logarithm used in the context of coding interviews is defined by the follow equation:
+  - `log(n) = y` if and only if `2ʸ = n`
+- In plain English, if an algorithm has a logarithmic time complexity (`O(log(n))`, where n is the size of the input), then whenever the algorithm's input doubles, the number of operations needed to complete the algorithm only increases by one unit. Conversely, an algorithm with a linear time complexity would see it's number of operations double if it's input's size doubles.
+- As an example, a linear-time-complexity algorithm with an input size of 1,000 might take roughly 1,000 operations to complete whereas a logarithmic-time-complexity algorithm with the same input size would take roughly 10 operations to complete because `2¹⁰ ~= 1000`
