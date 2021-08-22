@@ -93,3 +93,39 @@
   - Traversing an array(`map`, `filter`, `reduce`, `forEach`):
     - `O(n) time, O(1) space if morphing array`
     - `O(n) time, O(n) space if creating a new array`
+
+## Linked Lists
+
+- **Singly Linked List:**
+  - A data structure that consists of nodes, each with some value and a pointer to the next node in the linked list. A linked list node's value and next node are typically stored in `value` and `next` properties
+  - The first node in a linked list is referred to as the **head** of the linked list
+  - The last node in a linked list, whose `next` points to `null`, is known as the **tail**
+  - Visual Representation of a Singly Linked List:
+    - `0 -> 1 -> 3 -> 5 -> 6 -> 9 -> null`
+  - A singly linked lists typically exposes it's head to it's user for easy access.
+  - While finding a node in a singly linked lists involves traversing through all of the nodes leading up to the node in question (as opposed to instant access with an array), adding or removing nodes simply involves overwriting `next` pointers (assuming that you have access to the node right before the node that you're adding or removing)
+  - **Standard Operations and Time Complexity:**
+    - Accessing the `head`: `O(1)`
+    - Accessing the `tail`: `O(n)`
+    - Accessing the middle `node`: `O(n)`
+    - Inserting / Removing the head: `O(1)`
+    - Inserting / Removing the tail: `O(n) to access + O(1)`
+    - Inserting / Removing a middle node: `O(n) to access + O(1)`
+    - Searching for a value: `O(n)`
+- **Double Linked List:**
+  - Same as a **Singly Linked List** except that each node also have a pointer to the previos node in the linked list, typically stored in the `prev` property
+  - Just as the `next` property of a doubly linked list's `tail` points to `null`, so does the `prev` property of a doubly linked list's `head`
+  - Visual Representation of a Doubly Linked List:
+    - `null <- 0 <--> 1 <--> 2 <--> 5 <--> 8 -> null`
+  - A doubly linked list also exposes it's `tail` to the user
+  - **Standard Operations and Time Complexity:**
+    - Accessing the `head`: `O(1)`
+    - Accessing the `tail`: `O(1)`
+    - Accessing the middle `node`: `O(n)`
+    - Inserting / Removing the `head`: `O(1)`
+    - Inserting / Removing the `tail`: `O(1)`
+    - Inserting / Removing the middle `node`: `O(n) to access + O(1)`
+    - Searching for a value: `O(n)`
+- **Circular Linked List:**
+  - A linked list that has no clear `head` or `tail`, because it's "tail" points to it's "head", forming a circle
+  - Can either be a singly circular linked list or a doubly circular linked list
