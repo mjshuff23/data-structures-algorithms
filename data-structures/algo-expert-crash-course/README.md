@@ -71,10 +71,15 @@
 
 ## Arrays
 
+- A **static array** is an implementation of an array that allocates a fixed amount of memory to be used for storing the array's values
+  - Appending values to the array therefore involves copying the entire array and allocating new memory for it, accounting for the extra space needed for the newly appended value. This is **linear time**
+- A **dynamic array** is an implementation of an array that preemptively allocates double the amount of memory needed to store the array's values
+  - Appending values to the array is a **constant time** operation until the allocated memory is filled up, at which point the array is copied and double the memory is once again allocated. This implementation leads to an amortized constant time insertion-at-end operation
+- A lot of programming languages, like **JavaScript** and **Python**, use dynamic arrays
 - A linear collection of data values that are accessible at numbered indices, starting at index `0`
-- **Standard Operations:**
-  - Accessing a value at a given index: `O(1)`
-  - Updated a value at a given index: `O(1)`
+- **Standard Operations Complexity:**
+  - Accessing a value at a given index: `O(1) time+space`
+  - Updated a value at a given index: `O(1) time+space`
   - Inserting a new value at the beginning: `O(n)`
   - Inserting a new value in the middle: `O(n)`
   - Inserting a new value at the end:
@@ -83,9 +88,8 @@
   - Removing a value at the beginning: `O(n)`
   - Removing a value in the middle: `O(n)`
   - Removing a value at the end: `O(1)`
-  - Copying the array: `O(n)`
-- A **static array** is an implementation of an array that allocates a fixed amount of memory to be used for storing the array's values
-  - Appending values to the array therefore involves copying the entire array and allocating new memory for it, accounting for the extra space needed for the newly appended value. This is **linear time**
-- A **dynamic array** is an implementation of an array that preemptively allocates double the amount of memory needed to store the array's values
-  - Appending values to the array is a **constant time** operation until the allocated memory is filled up, at which point the array is copied and double the memory is once again allocated. This implementation leads to an amortized constant time insertion-at-end operation
-- A lot of programming languages, like **JavaScript** and **Python**, use dynamic arrays
+  - Copying the array: `O(n) time+space`
+  - Initializing an array: `O(n) time+space`
+  - Traversing an array(`map`, `filter`, `reduce`, `forEach`):
+    - `O(n) time, O(1) space if morphing array`
+    - `O(n) time, O(n) space if creating a new array`

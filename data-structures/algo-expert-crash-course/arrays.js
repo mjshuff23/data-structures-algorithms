@@ -24,3 +24,7 @@ console.log(numbers.unshift(2));
 // Updating a value at a given index is constant-time O(1)
 console.log((numbers[3] = 20));
 console.log(numbers);
+
+// Inserting a new value to the front or middle of an array is linear-time O(n)
+numbers.splice(3, 0, 300);
+console.log(numbers);
