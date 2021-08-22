@@ -68,3 +68,24 @@
   - `log(n) = y` if and only if `2ʸ = n`
 - In plain English, if an algorithm has a logarithmic time complexity (`O(log(n))`, where n is the size of the input), then whenever the algorithm's input doubles, the number of operations needed to complete the algorithm only increases by one unit. Conversely, an algorithm with a linear time complexity would see it's number of operations double if it's input's size doubles.
 - As an example, a linear-time-complexity algorithm with an input size of 1,000 might take roughly 1,000 operations to complete whereas a logarithmic-time-complexity algorithm with the same input size would take roughly 10 operations to complete because `2¹⁰ ~= 1000`
+
+## Arrays
+
+- A linear collection of data values that are accessible at numbered indices, starting at index `0`
+- **Standard Operations:**
+  - Accessing a value at a given index: `O(1)`
+  - Updated a value at a given index: `O(1)`
+  - Inserting a new value at the beginning: `O(n)`
+  - Inserting a new value in the middle: `O(n)`
+  - Inserting a new value at the end:
+    - Amortized `O(1)` when dealing with a **dynamic array**
+    - O(n) when dealing with a **static array**
+  - Removing a value at the beginning: `O(n)`
+  - Removing a value in the middle: `O(n)`
+  - Removing a value at the end: `O(1)`
+  - Copying the array: `O(n)`
+- A **static array** is an implementation of an array that allocates a fixed amount of memory to be used for storing the array's values
+  - Appending values to the array therefore involves copying the entire array and allocating new memory for it, accounting for the extra space needed for the newly appended value. This is **linear time**
+- A **dynamic array** is an implementation of an array that preemptively allocates double the amount of memory needed to store the array's values
+  - Appending values to the array is a **constant time** operation until the allocated memory is filled up, at which point the array is copied and double the memory is once again allocated. This implementation leads to an amortized constant time insertion-at-end operation
+- A lot of programming languages, like **JavaScript** and **Python**, use dynamic arrays
