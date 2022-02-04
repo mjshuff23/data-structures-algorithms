@@ -8,53 +8,76 @@ const squaredOutput = [1, 4, 9, 25, 36, 64, 81];
 // Solution 1
 // Time - O(nlog(n)), Space - O(n)
 function sortedSquaredArray(array) {
-	// create an array the same size as our input array and fill it with 0's
-	const sortedSquares = new Array(array.length).fill(0);
+  // create an array the same size as our input array and fill it with 0's
+  const sortedSquares = new Array(array.length).fill(0);
 
-	// Loop through array and square each index
-	for (let i = 0; i < array.length; i++) {
-		const value = array[i];
-		sortedSquares[i] = value * value;
-	}
+  // Loop through array and square each index
+  for (let i = 0; i < array.length; i++) {
+    const value = array[i];
+    sortedSquares[i] = value * value;
+  }
 
-	// Sort our squared array
-	sortedSquares.sort((a, b) => a - b);
-	return sortedSquares;
+  // Sort our squared array
+  sortedSquares.sort((a, b) => a - b);
+  return sortedSquares;
 }
 
-console.log(sortedSquaredArray(array));
+// console.log(sortedSquaredArray(array));
 
 // Solution 2
 // Time - O(n), Space - O(n)
-//      vv
-// [-5, 0, 4] => [0, 16, 25]
-// if(5 > 4) - [0, 16, 25]
 function sortedSquaredArray2(array) {
-	// Create an array of the same size as our input array and fill with 0's
-	const sortedSquares = new Array(array.length).fill(0);
-	// Start the smallerValueIndex at 0, and the largerValueIndex at the length of array - 1
-	let smallerValueIndex = 0;
-	let largerValueIndex = array.length - 1;
+  // Create an array of the same size as our input array and fill with 0's
+  const sortedSquares = new Array(array.length).fill(0);
+  // Start the smallerValueIndex at 0, and the largerValueIndex at the length of array - 1
+  let smallerValueIndex = 0;
+  let largerValueIndex = array.length - 1;
 
-	// Loop through array backwards
-	for (let i = array.length - 1; i >= 0; i--) {
-		// Grab smaller and larger values to compare absolute value in case one is negative
-		const smallerValue = array[smallerValueIndex];
-		const largerValue = array[largerValueIndex];
+  // Loop through array backwards
+  for (let i = array.length - 1; i >= 0; i--) {
+    // Grab smaller and larger values to compare absolute value in case one is negative
+    const smallerValue = array[smallerValueIndex];
+    const largerValue = array[largerValueIndex];
 
-		if (Math.abs(smallerValue) > Math.abs(largerValue)) {
-			// Add to the back of the array
-			sortedSquares[i] = smallerValue * smallerValue;
-			// Move the smaller value pointer up one
-			smallerValueIndex++;
-		} else {
-			sortedSquares[i] = largerValue * largerValue;
-			largerValueIndex--;
-		}
-	}
-	return sortedSquares;
+    if (Math.abs(smallerValue) > Math.abs(largerValue)) {
+      // Add to the back of the array
+      sortedSquares[i] = smallerValue * smallerValue;
+      // Move the smaller value pointer up one
+      smallerValueIndex++;
+    } else {
+      sortedSquares[i] = largerValue * largerValue;
+      largerValueIndex--;
+    }
+  }
+  return sortedSquares;
 }
 
 // num * num, num ** 2, Math.pow(num, 2)
 
-console.log(sortedSquaredArray2(array));
+// console.log(sortedSquaredArray2(array));
+
+function sortedSquaredArray3(nums) {
+  let a, b;
+  let result = [];
+
+  for (let i = 0; i < nums.length - 1; i++) {
+    a = array[i] * array[i];
+    b = array[i + 1] * array[i + 1];
+
+    console.log(a, b);
+    if (a < b) {
+      if (i === nums.length - 2) {
+        result.push(a);
+        result.push(b);
+      } else {
+        result.push(a);
+      }
+    } else {
+      result.push(b);
+    }
+  }
+
+  return result;
+}
+
+console.log(sortedSquaredArray3(array));
